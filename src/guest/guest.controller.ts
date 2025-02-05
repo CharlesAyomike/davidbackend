@@ -38,10 +38,12 @@ export class GuestController {
   }
 
   @Patch(':code')
-  updateGuestDetails(
+  async updateGuestDetails(
     @Param('code') code: string,
     @Body() body: CreateGuestDetails,
   ) {
-    return this.guestService.update(code, body);
+    const result = await this.guestService.update(code, body);
+    if (!result) return new HttpException('code not found', 404);
+    return result;
   }
 }
