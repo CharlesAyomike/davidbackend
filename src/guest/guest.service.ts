@@ -10,7 +10,7 @@ export class GuestService {
   constructor(@InjectModel(Guest.name) private guestModel: Model<Guest>) {}
 
   async findAll() {
-    return this.guestModel.find();
+    return this.guestModel.find({}, { _id: 0, code: 1 });
   }
 
   findOne(code: string) {
@@ -20,10 +20,11 @@ export class GuestService {
     return guest;
   }
 
-  create(creatGuestCode: CreatGuestCode) {
+  async create(creatGuestCode: CreatGuestCode) {
     // const code: CreatGuestCode[] = [];
-    // for (let i = 100; i <= 200; i++) {
-    //   code.push({ code: `AD${i}` });
+    // for (let i = 1; i <= 100; i++) {
+    //   const rand1 = Math.random().toString(36).substring(2, 6).toUpperCase();
+    //   code.push({ code: `AD${rand1}` });
     // }
     // return await this.guestModel.insertMany(code);
     const addGuest = new this.guestModel(creatGuestCode);
