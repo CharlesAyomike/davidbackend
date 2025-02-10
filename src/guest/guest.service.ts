@@ -10,7 +10,7 @@ export class GuestService {
   constructor(@InjectModel(Guest.name) private guestModel: Model<Guest>) {}
 
   async findAll() {
-    return this.guestModel.find({}, { _id: 0, code: 1 });
+    return this.guestModel.find();
   }
 
   findOne(code: string) {
