@@ -11,6 +11,7 @@ export class CronService {
       this.httpService.get(
         'https://davidbackend-gi5p.onrender.com/guest/MYCODE136',
       );
+      console.log('cron is running');
     } catch (error) {
       console.error('Keep-alive request failed', error);
     }
