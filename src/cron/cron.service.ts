@@ -5,7 +5,7 @@ import { Cron } from '@nestjs/schedule';
 @Injectable()
 export class CronService {
   constructor(private readonly httpService: HttpService) {}
-  @Cron('*/14 * * * *')
+  @Cron('*/10 * * * *')
   handleCron() {
     try {
       this.httpService.get(
