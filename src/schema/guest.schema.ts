@@ -10,6 +10,9 @@ export class Guest {
 
   @Prop()
   email: string;
+
+  @Prop()
+  hasEntered: boolean;
 }
 
 export const guestSchema = SchemaFactory.createForClass(Guest);

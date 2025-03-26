@@ -46,4 +46,14 @@ export class GuestController {
     if (!result) return new HttpException('code not found', 404);
     return result;
   }
+
+  @Patch('hasEntered/:code')
+  async updateGuestHasEntered(
+    @Param('code') code: string,
+    @Body() body: CreateGuestDetails,
+  ) {
+    const result = await this.guestService.update(code, body);
+    if (!result) return new HttpException('code not found', 404);
+    return result;
+  }
 }
